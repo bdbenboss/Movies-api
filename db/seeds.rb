@@ -8,4 +8,11 @@
 # movies = Movie.create([{ title: "Star Wars" }, { title: "Lord of the Rings" }])
 require 'json'
 Movie.destroy_all
-File.read('./public/movies.json')
+movies = JSON.parse(File.read("./public/movies.json"))
+
+
+movies.each do |movie|
+  Movie.create(title: movie["title"])
+end
+
+puts "#{Movie.all.count} movies created"
