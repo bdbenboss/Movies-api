@@ -1,3 +1,4 @@
 <%=@movies.all.count%>
 
 <%=@movies.first.title%>
+<%= button_to "Delete", delete_api_v1_movie_path(@movies.last), :confirm => "Are you sure?", :method => :delete %>
